@@ -1,0 +1,397 @@
+[gd_scene load_steps=6 format=3 uid="uid://dx8uqaky6yr66"]
+
+[ext_resource type="Script" uid="uid://dw8r5o0wnqmmy" path="res://Scripts/level_select.gd" id="1_q32fb"]
+[ext_resource type="Script" uid="uid://cv1l6xh23oonp" path="res://Scripts/level_button.gd" id="2_ljbcs"]
+[ext_resource type="PackedScene" uid="uid://b4nm8sjij01rf" path="res://Scenes/Level_01.tscn" id="3_dux4i"]
+[ext_resource type="FontFile" uid="uid://dsj42xokygp6k" path="res://Assets/AmazDooMLeft.ttf" id="4_2rup6"]
+[ext_resource type="PackedScene" uid="uid://bhveegm75qsis" path="res://Scenes/Level_02.tscn" id="4_j8h2e"]
+
+[node name="Level Select" type="CanvasLayer"]
+script = ExtResource("1_q32fb")
+
+[node name="Levels" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -409.0
+offset_top = -137.0
+offset_right = 410.0
+offset_bottom = 208.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Level 01" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 26.0
+offset_right = 248.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelToOpen = ExtResource("3_dux4i")
+levelName = "B-1"
+
+[node name="Score" type="Label" parent="Levels/Level 01"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 130.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 01/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 01"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 61.0
+offset_right = 130.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 01/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 01"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "LEVEL 01"
+horizontal_alignment = 1
+
+[node name="Level 02" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 26.0
+offset_right = 535.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelId = 1
+levelToOpen = ExtResource("4_j8h2e")
+levelName = "B-2"
+
+[node name="Score" type="Label" parent="Levels/Level 02"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 02/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 02"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 61.0
+offset_right = 128.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 02/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 02"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "LEVEL 02"
+horizontal_alignment = 1
+
+[node name="Level 03" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 26.0
+offset_right = 822.0
+offset_bottom = 116.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelId = 2
+levelName = "N/A"
+
+[node name="Score" type="Label" parent="Levels/Level 03"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 130.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 03/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 03"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 61.0
+offset_right = 130.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 03/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 03"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "N/A"
+horizontal_alignment = 1
+
+[node name="Level 04" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 148.0
+offset_right = 248.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelToOpen = ExtResource("3_dux4i")
+levelName = "B-1"
+
+[node name="Score" type="Label" parent="Levels/Level 04"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 130.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 04/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 04"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 61.0
+offset_right = 130.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 04/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 04"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "N/A"
+horizontal_alignment = 1
+
+[node name="Level 05" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 283.0
+offset_top = 148.0
+offset_right = 535.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelId = 1
+levelToOpen = ExtResource("4_j8h2e")
+levelName = "B-2"
+
+[node name="Score" type="Label" parent="Levels/Level 05"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 40.0
+offset_right = 128.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 05/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 05"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 61.0
+offset_right = 128.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 05/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 05"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "N/A"
+horizontal_alignment = 1
+
+[node name="Level 06" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = 570.0
+offset_top = 148.0
+offset_right = 822.0
+offset_bottom = 238.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+script = ExtResource("2_ljbcs")
+levelId = 2
+levelName = "N/A"
+
+[node name="Score" type="Label" parent="Levels/Level 06"]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 40.0
+offset_right = 130.0
+offset_bottom = 63.0
+text = "HIGHSCORE:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 06/Score"]
+layout_mode = 0
+offset_left = 104.0
+offset_right = 160.0
+offset_bottom = 23.0
+text = "0"
+
+[node name="Time" type="Label" parent="Levels/Level 06"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 61.0
+offset_right = 130.0
+offset_bottom = 84.0
+text = "BEST TIME:"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="Levels/Level 06/Time"]
+layout_mode = 0
+offset_left = 92.0
+offset_right = 156.0
+offset_bottom = 23.0
+text = "00:00:00"
+
+[node name="Level" type="Label" parent="Levels/Level 06"]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 248.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 30
+text = "N/A"
+horizontal_alignment = 1
+
+[node name="Exit Level Select" type="Button" parent="Levels"]
+layout_mode = 0
+offset_left = -155.0
+offset_top = -172.0
+offset_right = -105.0
+offset_bottom = -89.0
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 60
+action_mode = 0
+text = "<"
+flat = true
+
+[node name="Level" type="Label" parent="Levels"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -122.5
+offset_top = -167.0
+offset_right = 125.5
+offset_bottom = -105.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("4_2rup6")
+theme_override_font_sizes/font_size = 50
+text = "SELECT A LEVEL"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="Levels/Level 01" to="Levels/Level 01" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 01" to="Levels/Level 01" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 01" to="Levels/Level 01" method="_on_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 02" to="Levels/Level 02" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 02" to="Levels/Level 02" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 02" to="Levels/Level 02" method="_on_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 03" to="Levels/Level 03" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 03" to="Levels/Level 03" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 03" to="Levels/Level 03" method="_on_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 04" to="Levels/Level 04" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 04" to="Levels/Level 04" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 04" to="Levels/Level 04" method="_on_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 05" to="Levels/Level 05" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 05" to="Levels/Level 05" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 05" to="Levels/Level 05" method="_on_pressed"]
+[connection signal="mouse_entered" from="Levels/Level 06" to="Levels/Level 06" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Levels/Level 06" to="Levels/Level 06" method="_on_mouse_exited"]
+[connection signal="pressed" from="Levels/Level 06" to="Levels/Level 06" method="_on_pressed"]
+[connection signal="pressed" from="Levels/Exit Level Select" to="." method="_on_exit_level_select_pressed"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=3 uid="uid://5degh3vvvefl"]
+
+[ext_resource type="Script" uid="uid://cn5ilmsugaxmh" path="res://Scripts/door.gd" id="1_al254"]
+[ext_resource type="Texture2D" uid="uid://d2guku7jw155m" path="res://Assets/Sprites/Mobile - DOOM RPG - General Textures/WALL021.png" id="2_esqpa"]
+[ext_resource type="AudioStream" uid="uid://coi4g3s65wr4l" path="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Hit_Door.wav" id="3_je2an"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgcxh"]
+size = Vector3(1.80633, 3.14258, 0.146973)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tklsn"]
+albedo_texture = ExtResource("2_esqpa")
+metallic = 1.0
+metallic_texture = ExtResource("2_esqpa")
+uv1_scale = Vector3(2.645, 1.89, 1.11)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6vdn4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvcpp"]
+size = Vector3(1.78491, 3.1218, 1.82031)
+
+[node name="Door" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0201342, 0.00982404, -0.00843096)
+collision_mask = 7
+mass = 150.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
+script = ExtResource("1_al254")
+scoreGiven = 400
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00459075, 1.58052, -0.00561523)
+shape = SubResource("BoxShape3D_xgcxh")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79656, 0, 0, 0, 3.14368, 0, 0, 0, 0.12238, 0, 1.56467, 0)
+material_override = SubResource("StandardMaterial3D_tklsn")
+mesh = SubResource("BoxMesh_6vdn4")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014684, 1.25158, -1.12887)
+collision_layer = 2
+collision_mask = 7
+
+[node name="KillBox" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999996, 0, 0, 0, 0.999996, -0.0108642, 0.318008, 0.147985)
+shape = SubResource("BoxShape3D_jvcpp")
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_je2an")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

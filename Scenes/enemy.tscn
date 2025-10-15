@@ -1,0 +1,95 @@
+[gd_scene load_steps=18 format=3 uid="uid://dkqkoy08x0wtv"]
+
+[ext_resource type="Texture2D" uid="uid://d1me4maudtk5y" path="res://Assets/Sprites/cyber_demon/death/0.png" id="1_f0ttx"]
+[ext_resource type="Script" uid="uid://o8lu0kasnh52" path="res://Scripts/enemy.gd" id="1_opghh"]
+[ext_resource type="Texture2D" uid="uid://c8tbbt5d5wi1t" path="res://Assets/Sprites/cyber_demon/death/1.png" id="2_bbu3x"]
+[ext_resource type="Texture2D" uid="uid://bv4qs8djf4ory" path="res://Assets/Sprites/cyber_demon/death/2.png" id="3_axt33"]
+[ext_resource type="Texture2D" uid="uid://daym4hn5sj8c0" path="res://Assets/Sprites/cyber_demon/death/3.png" id="4_t0q2i"]
+[ext_resource type="Texture2D" uid="uid://bc4uilkj1pmsq" path="res://Assets/Sprites/cyber_demon/death/4.png" id="5_y3lqb"]
+[ext_resource type="Texture2D" uid="uid://bb11u5poexhkp" path="res://Assets/Sprites/cyber_demon/death/5.png" id="6_4hnuo"]
+[ext_resource type="Texture2D" uid="uid://c4mcahgxi3w7k" path="res://Assets/Sprites/cyber_demon/death/6.png" id="7_neofe"]
+[ext_resource type="Texture2D" uid="uid://bir6da1igl0f7" path="res://Assets/Sprites/cyber_demon/death/7.png" id="8_nftt8"]
+[ext_resource type="Texture2D" uid="uid://cvcmj74g54vot" path="res://Assets/Sprites/cyber_demon/death/8.png" id="9_yur0s"]
+[ext_resource type="Texture2D" uid="uid://c7xd6521gf78k" path="res://Assets/Sprites/cyber_demon/walk/0.png" id="10_exe7t"]
+[ext_resource type="Texture2D" uid="uid://dd6ppn4j1jgyg" path="res://Assets/Sprites/cyber_demon/walk/1.png" id="11_pdsfx"]
+[ext_resource type="Texture2D" uid="uid://b70iy7seiu8rc" path="res://Assets/Sprites/cyber_demon/walk/3.png" id="12_66iu8"]
+[ext_resource type="Texture2D" uid="uid://dh86kfyjubxr1" path="res://Assets/Sprites/cyber_demon/walk/4.png" id="13_81xp4"]
+[ext_resource type="AudioStream" uid="uid://k55w8nn7nha" path="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Enemy_DEATH.wav" id="15_unmfi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5mtoy"]
+height = 2.81963
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f51mp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_f0ttx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bbu3x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_axt33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_t0q2i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y3lqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4hnuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_neofe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_nftt8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_yur0s")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_exe7t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_pdsfx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_66iu8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_81xp4")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}]
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_opghh")
+moveSpeed = 3.0
+attackRange = 1.0
+
+[node name="Capsule Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00364339, 1.39074, -0.0041616)
+shape = SubResource("CapsuleShape3D_5mtoy")
+
+[node name="Sprite" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(1.00329, 0, 0, 0, 1.27152, 0, 0, 0, 0.64965, 0.00135577, 1.34448, -0.000473738)
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_f51mp")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00135577, 0.991024, -0.000473738)
+stream = ExtResource("15_unmfi")
+bus = &"SFX"

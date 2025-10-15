@@ -1,0 +1,146 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj1remi0c2nd0"]
+
+[ext_resource type="Script" uid="uid://l6m4qp2m4j3f" path="res://Scripts/main_menu.gd" id="1_ahwqq"]
+[ext_resource type="FontFile" uid="uid://dsj42xokygp6k" path="res://Assets/AmazDooMLeft.ttf" id="1_rguev"]
+[ext_resource type="FontFile" uid="uid://dypyibls4wk3r" path="res://Assets/AmazDooMRight.ttf" id="2_870u0"]
+[ext_resource type="PackedScene" uid="uid://splok3ts0ix5" path="res://Scenes/settings.tscn" id="4_y65nj"]
+
+[node name="Main Menu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ahwqq")
+
+[node name="Menu Content" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = -536.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Control" parent="Menu Content"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 536.0
+offset_right = 576.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Title Left" type="Label" parent="Menu Content/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -134.0
+offset_top = 7.0
+offset_right = 139.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rguev")
+theme_override_font_sizes/font_size = 156
+text = "POWER"
+
+[node name="Title Right" type="Label" parent="Menu Content/Title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 136.0
+offset_right = 124.0
+offset_bottom = 329.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_870u0")
+theme_override_font_sizes/font_size = 156
+text = "FIST"
+
+[node name="Buttons" type="Control" parent="Menu Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 153.0
+offset_top = 179.5
+offset_right = 959.0
+offset_bottom = 590.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="Menu Content/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -397.0
+offset_top = -35.5
+offset_right = 403.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rguev")
+theme_override_font_sizes/font_size = 50
+text = "Start"
+flat = true
+autowrap_mode = 1
+
+[node name="Quit" type="Button" parent="Menu Content/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -476.0
+offset_top = 108.5
+offset_right = 483.0
+offset_bottom = 178.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rguev")
+theme_override_font_sizes/font_size = 50
+text = "Quit"
+flat = true
+autowrap_mode = 1
+
+[node name="Settings" type="Button" parent="Menu Content/Buttons"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -344.0
+offset_top = 35.5
+offset_right = 345.0
+offset_bottom = 105.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_rguev")
+theme_override_font_sizes/font_size = 50
+text = "Settings"
+flat = true
+autowrap_mode = 1
+
+[node name="Settings" parent="." instance=ExtResource("4_y65nj")]
+visible = false
+
+[connection signal="pressed" from="Menu Content/Buttons/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Menu Content/Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Menu Content/Buttons/Settings" to="." method="_on_settings_pressed"]

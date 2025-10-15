@@ -1,0 +1,381 @@
+[gd_scene load_steps=13 format=3 uid="uid://dq6k58kgn1rub"]
+
+[ext_resource type="Texture2D" uid="uid://gpnw8por56xs" path="res://Assets/Sprites/punch_01.png" id="1_ec5dw"]
+[ext_resource type="Script" uid="uid://n5tabe4kbjgr" path="res://Scripts/player.gd" id="1_lpo2g"]
+[ext_resource type="Texture2D" uid="uid://cfg1o0qrvudeh" path="res://Assets/Sprites/punch_02.png" id="2_mo5f2"]
+[ext_resource type="Texture2D" uid="uid://bp271qiht1gm0" path="res://Assets/Sprites/punch_03.png" id="3_vrxvy"]
+[ext_resource type="FontFile" uid="uid://dsj42xokygp6k" path="res://Assets/AmazDooMLeft.ttf" id="5_dmux4"]
+[ext_resource type="Script" uid="uid://d4n3vxmrq6tdo" path="res://Scripts/menu.gd" id="5_ry2yq"]
+[ext_resource type="FontFile" uid="uid://dypyibls4wk3r" path="res://Assets/AmazDooMRight.ttf" id="6_uywqm"]
+[ext_resource type="AudioStream" uid="uid://nyb1p0vja6dc" path="res://Assets/Audio/Music/23. VICTOR - The End Of Doom.mp3" id="8_d1saw"]
+[ext_resource type="PackedScene" uid="uid://splok3ts0ix5" path="res://Scenes/settings.tscn" id="8_x3ydk"]
+[ext_resource type="AudioStream" uid="uid://56j538ebfmcl" path="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Throw_Punch.wav" id="10_aysq8"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v7dd0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h33eb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ec5dw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mo5f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vrxvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vrxvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mo5f2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_ec5dw")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 9.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ec5dw")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody3D" groups=["Player"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_lpo2g")
+
+[node name="Capsule Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_v7dd0")
+
+[node name="Cast" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+target_position = Vector3(0, 0, -5)
+collision_mask = 7
+
+[node name="Camera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Fist" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -40.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="FistSprite" type="AnimatedSprite2D" parent="CanvasLayer/Fist"]
+position = Vector2(-198, -164)
+scale = Vector2(2.50915, 2.50915)
+sprite_frames = SubResource("SpriteFrames_h33eb")
+animation = &"Attack"
+autoplay = "Idle"
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchor_left = 0.486
+anchor_top = 0.475
+anchor_right = 0.486
+anchor_bottom = 0.475
+offset_left = -19.872
+offset_top = -19.8
+offset_right = 20.128
+offset_bottom = 20.2
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("5_ry2yq")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Menu"]
+layout_mode = 0
+offset_left = -238.0
+offset_top = -169.0
+offset_right = 283.0
+offset_bottom = 207.0
+
+[node name="SCORE" type="Label" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -14.0
+offset_right = 226.5
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 40
+text = "SCORE"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="CanvasLayer/Menu/Panel/SCORE"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = 1.5
+offset_right = 127.5
+offset_bottom = 70.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 25
+text = "00000"
+horizontal_alignment = 2
+
+[node name="TIME" type="Label" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = 56.0
+offset_right = 226.5
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 40
+text = "TIME
+"
+horizontal_alignment = 2
+
+[node name="Value" type="Label" parent="CanvasLayer/Menu/Panel/TIME"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = 3.5
+offset_right = 127.5
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 25
+text = "00:00"
+horizontal_alignment = 2
+
+[node name="Restart Button" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = -8.0
+offset_right = -159.5
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "RESTART"
+flat = true
+alignment = 0
+
+[node name="Level Select" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = 22.0
+offset_right = -132.5
+offset_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "Level Select
+"
+flat = true
+alignment = 0
+
+[node name="Main Menu" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -237.5
+offset_top = 52.0
+offset_right = -159.5
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "MAIN MENU"
+flat = true
+alignment = 0
+
+[node name="Next Level" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = 82.0
+offset_right = -132.5
+offset_bottom = 122.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "Next Level"
+flat = true
+alignment = 0
+
+[node name="Settings" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = 110.0
+offset_right = -132.5
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "Settings"
+flat = true
+alignment = 0
+
+[node name="Quit" type="Button" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -236.5
+offset_top = 139.0
+offset_right = -132.5
+offset_bottom = 179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_uywqm")
+theme_override_font_sizes/font_size = 25
+text = "Quit
+"
+flat = true
+alignment = 0
+
+[node name="Title" type="Label" parent="CanvasLayer/Menu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -121.5
+offset_top = -124.0
+offset_right = 116.5
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 100
+text = "PLACEHOLDER"
+horizontal_alignment = 1
+
+[node name="MenuMusic" type="AudioStreamPlayer" parent="CanvasLayer/Menu"]
+stream = ExtResource("8_d1saw")
+bus = &"Music"
+
+[node name="Counter" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Counter"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.5
+offset_top = -10.0
+offset_right = 29.5
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("5_dmux4")
+theme_override_font_sizes/font_size = 40
+text = "00:00"
+
+[node name="Settings" parent="CanvasLayer" instance=ExtResource("8_x3ydk")]
+visible = false
+
+[node name="Crosshair" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(2, 2)
+
+[node name="Audio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_aysq8")
+bus = &"SFX"
+
+[node name="AudioListener" type="AudioListener3D" parent="."]
+current = true
+
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Restart Button" to="CanvasLayer/Menu" method="_on_restart_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Level Select" to="CanvasLayer/Menu" method="_on_level_select_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Main Menu" to="CanvasLayer/Menu" method="_on_main_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Next Level" to="CanvasLayer/Menu" method="_on_next_level_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Settings" to="CanvasLayer/Menu" method="_on_settings_pressed"]
+[connection signal="pressed" from="CanvasLayer/Menu/Panel/Quit" to="CanvasLayer/Menu" method="_on_quit_pressed"]

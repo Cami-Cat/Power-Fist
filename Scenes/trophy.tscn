@@ -1,0 +1,61 @@
+[gd_scene load_steps=8 format=3 uid="uid://cqg5hme5ulryp"]
+
+[ext_resource type="Script" uid="uid://s5ptiu4yq0km" path="res://Scripts/trophy.gd" id="1_hqqo2"]
+[ext_resource type="Script" uid="uid://cbp2wnthetnsr" path="res://Scripts/area_3d.gd" id="2_jlvve"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_1h87j"]
+height = 0.932909
+radius = 0.498923
+
+[sub_resource type="BoxMesh" id="BoxMesh_t5xul"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cs0yl"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_32kwi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_4u83g"]
+size = Vector3(2.33472, 2.32886, 2.43054)
+
+[node name="Trophy" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 7
+script = ExtResource("1_hqqo2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.601954, 0)
+shape = SubResource("CylinderShape3D_1h87j")
+
+[node name="Trophy Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.605101, 0, 0, 0, 0.0947948, 0, 0, 0, 0.605101, 0, -1.02436, 0)
+mesh = SubResource("BoxMesh_t5xul")
+
+[node name="Trophy Leg" type="MeshInstance3D" parent="Trophy Base"]
+transform = Transform3D(0.238923, 0, 0, 0, 1.45508, 0, 0, 0, 0.238923, 0, 1.83025, 0)
+mesh = SubResource("CylinderMesh_cs0yl")
+skeleton = NodePath("../..")
+
+[node name="Trophy Body" type="MeshInstance3D" parent="Trophy Base"]
+transform = Transform3D(0.910466, 0, 0, 0, 2.62884, 0, 0, 0, 0.910466, 0, 5.98632, 0)
+mesh = SubResource("CylinderMesh_cs0yl")
+skeleton = NodePath("../..")
+
+[node name="Trophy Handle L" type="MeshInstance3D" parent="Trophy Base"]
+transform = Transform3D(0.330334, 0, 0, 0, 0, -2.06784, 0, 0.657165, 0, 0.407533, 5.98632, 0)
+mesh = SubResource("TorusMesh_32kwi")
+skeleton = NodePath("../..")
+
+[node name="Trophy Handle R" type="MeshInstance3D" parent="Trophy Base"]
+transform = Transform3D(0.330334, 0, 0, 0, 0, -2.06784, 0, 0.657165, 0, -0.386917, 5.98632, 0)
+mesh = SubResource("TorusMesh_32kwi")
+skeleton = NodePath("../..")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("2_jlvve")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0245361, 0.0526123, 0.0961304)
+shape = SubResource("BoxShape3D_4u83g")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

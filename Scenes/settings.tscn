@@ -1,0 +1,321 @@
+[gd_scene load_steps=8 format=3 uid="uid://splok3ts0ix5"]
+
+[ext_resource type="Script" uid="uid://xg2tjpkep4nm" path="res://Scripts/settings.gd" id="1_4mjg3"]
+[ext_resource type="StyleBox" uid="uid://d0sqiordj1311" path="res://resources/SliderBackground.tres" id="1_4s5nc"]
+[ext_resource type="FontFile" uid="uid://dsj42xokygp6k" path="res://Assets/AmazDooMLeft.ttf" id="1_hsrle"]
+[ext_resource type="Script" uid="uid://vnrxwjddt2ai" path="res://Scripts/sliders.gd" id="1_lu5gs"]
+[ext_resource type="StyleBox" uid="uid://ct71ipppmahd6" path="res://resources/SliderHighlighting.tres" id="2_l8noc"]
+[ext_resource type="FontFile" uid="uid://dypyibls4wk3r" path="res://Assets/AmazDooMRight.ttf" id="6_brl03"]
+[ext_resource type="Script" uid="uid://dos2hno3g3l2h" path="res://Scripts/Toggles.gd" id="7_2y36g"]
+
+[node name="Settings" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_4mjg3")
+
+[node name="Main Settings" type="Panel" parent="."]
+z_index = -1
+anchors_preset = -1
+anchor_left = 0.493
+anchor_top = 0.5
+anchor_right = 0.493
+anchor_bottom = 0.5
+offset_left = -265.936
+offset_top = -166.0
+offset_right = 265.064
+offset_bottom = 217.0
+
+[node name="Sliders" type="Control" parent="Main Settings"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.0
+offset_top = -180.5
+offset_right = 220.0
+offset_bottom = 163.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lu5gs")
+
+[node name="Master Volume" type="HSlider" parent="Main Settings/Sliders"]
+z_index = 10
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.325328
+anchor_right = 0.957447
+anchor_bottom = 0.360262
+theme_override_styles/slider = ExtResource("1_4s5nc")
+theme_override_styles/grabber_area = ExtResource("2_l8noc")
+theme_override_styles/grabber_area_highlight = ExtResource("2_l8noc")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+
+[node name="Title" type="Label" parent="Main Settings/Sliders/Master Volume"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 404.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 30
+text = "MASTER VOLUME"
+
+[node name="SFX" type="HSlider" parent="Main Settings/Sliders"]
+z_index = 10
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.502183
+anchor_right = 0.957447
+anchor_bottom = 0.537118
+offset_top = 1.52588e-05
+theme_override_styles/slider = ExtResource("1_4s5nc")
+theme_override_styles/grabber_area = ExtResource("2_l8noc")
+theme_override_styles/grabber_area_highlight = ExtResource("2_l8noc")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+
+[node name="Title" type="Label" parent="Main Settings/Sliders/SFX"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 404.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 30
+text = "SFX"
+
+[node name="Music" type="HSlider" parent="Main Settings/Sliders"]
+z_index = 10
+y_sort_enabled = true
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.685589
+anchor_right = 0.957447
+anchor_bottom = 0.720524
+theme_override_styles/slider = ExtResource("1_4s5nc")
+theme_override_styles/grabber_area = ExtResource("2_l8noc")
+theme_override_styles/grabber_area_highlight = ExtResource("2_l8noc")
+max_value = 1.0
+step = 0.001
+value = 1.0
+tick_count = 10
+
+[node name="Title" type="Label" parent="Main Settings/Sliders/Music"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = -36.0
+offset_right = 404.0
+offset_bottom = 2.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 30
+text = "MUSIC"
+
+[node name="ExitSettings" type="Button" parent="Main Settings"]
+layout_mode = 0
+offset_left = -301.5
+offset_top = -130.0
+offset_right = -251.5
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 60
+action_mode = 0
+text = "<"
+flat = true
+
+[node name="Controls" type="Panel" parent="Main Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 283.5
+offset_top = -191.5
+offset_right = 503.5
+offset_bottom = 191.5
+
+[node name="Control List" type="Control" parent="Main Settings/Controls"]
+layout_mode = 1
+anchor_left = 0.507
+anchor_top = 0.5
+anchor_right = 0.507
+anchor_bottom = 0.5
+offset_left = -100.54
+offset_top = -183.5
+offset_right = 100.46
+offset_bottom = 181.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Label" parent="Main Settings/Controls/Control List"]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 137.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 26
+text = "MOVEMENT"
+horizontal_alignment = 1
+
+[node name="Inputs" type="Label" parent="Main Settings/Controls/Control List/Movement"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 30.0
+offset_right = -51.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "W
+A
+S
+D"
+
+[node name="Action" type="Label" parent="Main Settings/Controls/Control List/Movement/Inputs"]
+layout_mode = 0
+offset_left = 134.0
+offset_right = 197.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "Forward
+Left
+Backward
+Right"
+horizontal_alignment = 2
+
+[node name="Attacking" type="Label" parent="Main Settings/Controls/Control List"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 179.0
+offset_right = 138.0
+offset_bottom = 212.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 26
+text = "ATTACKING"
+horizontal_alignment = 1
+
+[node name="Inputs" type="Label" parent="Main Settings/Controls/Control List/Attacking"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 34.0
+offset_right = 17.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "Mouse Left"
+
+[node name="Action" type="Label" parent="Main Settings/Controls/Control List/Attacking/Inputs"]
+layout_mode = 0
+offset_left = 119.0
+offset_right = 197.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "PUNCH"
+horizontal_alignment = 2
+
+[node name="Menu" type="Label" parent="Main Settings/Controls/Control List"]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 277.0
+offset_right = 138.0
+offset_bottom = 310.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 26
+text = "MENU"
+horizontal_alignment = 1
+
+[node name="Inputs" type="Label" parent="Main Settings/Controls/Control List/Menu"]
+layout_mode = 0
+offset_left = -61.0
+offset_top = 30.0
+offset_right = -37.0
+offset_bottom = 163.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "ESC"
+
+[node name="Action" type="Label" parent="Main Settings/Controls/Control List/Menu/Inputs"]
+layout_mode = 0
+offset_left = 157.0
+offset_right = 197.0
+offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+text = "PAUSE"
+horizontal_alignment = 2
+
+[node name="Settings" type="Panel" parent="Main Settings"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -505.5
+offset_top = -191.5
+offset_right = -285.5
+offset_bottom = 191.5
+script = ExtResource("7_2y36g")
+
+[node name="Control List" type="Control" parent="Main Settings/Settings"]
+layout_mode = 1
+anchor_left = 0.507
+anchor_top = 0.5
+anchor_right = 0.507
+anchor_bottom = 0.5
+offset_left = -100.54
+offset_top = -183.5
+offset_right = 100.46
+offset_bottom = 181.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Movement" type="Label" parent="Main Settings/Settings/Control List"]
+layout_mode = 0
+offset_left = 65.0
+offset_right = 137.0
+offset_bottom = 33.0
+theme_override_fonts/font = ExtResource("1_hsrle")
+theme_override_font_sizes/font_size = 26
+text = "WINDOW"
+horizontal_alignment = 1
+
+[node name="Fullscreen" type="CheckButton" parent="Main Settings/Settings/Control List/Movement"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 31.0
+offset_right = 140.0
+offset_bottom = 70.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "FULLSCREEN"
+flat = true
+
+[node name="Vsync" type="CheckButton" parent="Main Settings/Settings/Control List/Movement"]
+layout_mode = 0
+offset_left = -72.0
+offset_top = 70.0
+offset_right = 140.0
+offset_bottom = 109.0
+theme_override_fonts/font = ExtResource("6_brl03")
+theme_override_font_sizes/font_size = 20
+action_mode = 0
+text = "V-Sync"
+flat = true
+
+[connection signal="value_changed" from="Main Settings/Sliders/Master Volume" to="Main Settings/Sliders" method="_on_volume_value_changed"]
+[connection signal="value_changed" from="Main Settings/Sliders/SFX" to="Main Settings/Sliders" method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="Main Settings/Sliders/Music" to="Main Settings/Sliders" method="_on_music_value_changed"]
+[connection signal="pressed" from="Main Settings/ExitSettings" to="." method="_on_exit_settings_pressed"]
+[connection signal="toggled" from="Main Settings/Settings/Control List/Movement/Fullscreen" to="Main Settings/Settings" method="_on_fullscreen_toggled"]
+[connection signal="toggled" from="Main Settings/Settings/Control List/Movement/Vsync" to="Main Settings/Settings" method="_on_vsync_toggled"]

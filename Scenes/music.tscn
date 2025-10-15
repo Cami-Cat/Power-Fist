@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cet5xb4c7yoag"]
+
+[ext_resource type="AudioStream" uid="uid://nyb1p0vja6dc" path="res://Assets/Audio/Music/23. VICTOR - The End Of Doom.mp3" id="1_1704r"]
+[ext_resource type="Script" uid="uid://xpgiqdvo7ybw" path="res://music.gd" id="1_a5sx5"]
+
+[node name="Music" type="AudioStreamPlayer"]
+process_mode = 3
+stream = ExtResource("1_1704r")
+autoplay = true
+bus = &"Music"
+script = ExtResource("1_a5sx5")

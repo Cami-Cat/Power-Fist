@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://dpcdqjh0jpns8"]
+
+[ext_resource type="Texture2D" uid="uid://1lo24xubu7yi" path="res://Assets/Sprites/Mobile - DOOM RPG - General Textures/WALL010.png" id="1_022xx"]
+[ext_resource type="Script" uid="uid://cn5ilmsugaxmh" path="res://Scripts/door.gd" id="1_72vmq"]
+[ext_resource type="AudioStream" uid="uid://c6h4nbvf3sexi" path="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Hit_Locker.wav" id="3_f75pl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8bw7l"]
+albedo_texture = ExtResource("1_022xx")
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_n0cs1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_axhkx"]
+size = Vector3(1.29736, 3.15912, 1.26715)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_l6xc7"]
+size = Vector3(1.72284, 3.14555, 1.5741)
+
+[node name="Locker" type="RigidBody3D"]
+mass = 250.0
+script = ExtResource("1_72vmq")
+scoreGiven = 200
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.2918, 0, 0, 0, 3.17535, 0, 0, 0, 1.25981, 0, 1.62043, 0)
+material_override = SubResource("StandardMaterial3D_8bw7l")
+mesh = SubResource("BoxMesh_n0cs1")
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000732422, 1.62442, 0.000335693)
+shape = SubResource("BoxShape3D_axhkx")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0447036, 1.26555, -1.12744)
+collision_layer = 2
+collision_mask = 7
+
+[node name="KillBox" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.99999, -3.87246e-13, 0, 3.73035e-13, 0.99999, 0.0408019, -1.1348, 0.640601)
+shape = SubResource("BoxShape3D_l6xc7")
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_f75pl")
+bus = &"SFX"

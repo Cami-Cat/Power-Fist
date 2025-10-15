@@ -1,0 +1,58 @@
+[gd_scene load_steps=8 format=3 uid="uid://brda5tf0jtfr8"]
+
+[ext_resource type="Script" uid="uid://cn5ilmsugaxmh" path="res://Scripts/door.gd" id="1_msxpo"]
+[ext_resource type="Texture2D" uid="uid://d2guku7jw155m" path="res://Assets/Sprites/Mobile - DOOM RPG - General Textures/WALL021.png" id="2_r47gl"]
+[ext_resource type="AudioStream" uid="uid://c6h4nbvf3sexi" path="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Hit_Locker.wav" id="3_h5ck0"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xgcxh"]
+size = Vector3(1.80633, 2.42273, 3.03357)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tklsn"]
+albedo_texture = ExtResource("2_r47gl")
+metallic = 1.0
+metallic_texture = ExtResource("2_r47gl")
+uv1_scale = Vector3(2.645, 1.89, 1.11)
+uv1_triplanar = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_6vdn4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jvcpp"]
+size = Vector3(1.78491, 3.1218, 3.789)
+
+[node name="Chair" type="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0201342, 0.00982404, -0.00843096)
+collision_mask = 7
+mass = 150.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 1, 0)
+script = ExtResource("1_msxpo")
+scoreGiven = 250
+
+[node name="Collision" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00459075, 1.2206, 0.0259399)
+shape = SubResource("BoxShape3D_xgcxh")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.79656, 0, 0, 0, -1.37415e-07, 0.693157, 0, -3.14368, -3.02989e-08, -0.00696087, 0.346996, -0.0027212)
+material_override = SubResource("StandardMaterial3D_tklsn")
+mesh = SubResource("BoxMesh_6vdn4")
+
+[node name="Mesh_2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.61173, 0, 0, 0, -1.39363e-07, 1.61193, 0, -3.18826, -7.04599e-08, -0.789047, 0.869145, -0.00272122)
+material_override = SubResource("StandardMaterial3D_tklsn")
+mesh = SubResource("BoxMesh_6vdn4")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014684, 1.25158, -1.12887)
+collision_layer = 2
+collision_mask = 7
+
+[node name="KillBox" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.999999, 0, 0, 0, 0.999996, 0, 0, 0, 0.999996, -0.0108642, 0.318008, 1.13233)
+shape = SubResource("BoxShape3D_jvcpp")
+
+[node name="Audio" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_h5ck0")
+bus = &"SFX"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
