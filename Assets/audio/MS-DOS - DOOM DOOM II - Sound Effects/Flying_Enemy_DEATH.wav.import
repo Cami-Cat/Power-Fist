@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c26t154euljpk"
+path="res://.godot/imported/Flying_Enemy_DEATH.wav-94e6fc2ea0859555ab29e2402f87cd73.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/Flying_Enemy_DEATH.wav"
+dest_files=["res://.godot/imported/Flying_Enemy_DEATH.wav-94e6fc2ea0859555ab29e2402f87cd73.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
