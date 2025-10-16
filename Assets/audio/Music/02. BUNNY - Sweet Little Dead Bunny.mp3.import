@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cvc2vcyhliato"
+path="res://.godot/imported/02. BUNNY - Sweet Little Dead Bunny.mp3-446eaa8a083515ca33d7538ee0ad4bf2.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Music/02. BUNNY - Sweet Little Dead Bunny.mp3"
+dest_files=["res://.godot/imported/02. BUNNY - Sweet Little Dead Bunny.mp3-446eaa8a083515ca33d7538ee0ad4bf2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
