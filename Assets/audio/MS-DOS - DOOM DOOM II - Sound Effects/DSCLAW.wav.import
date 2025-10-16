@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://d2dfjm4ucltqw"
+path="res://.godot/imported/DSCLAW.wav-0d76bc35551058a4d5f4b10acc6a65c5.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSCLAW.wav"
+dest_files=["res://.godot/imported/DSCLAW.wav-0d76bc35551058a4d5f4b10acc6a65c5.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

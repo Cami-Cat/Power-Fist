@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b3tabejl76x3p"
+path="res://.godot/imported/DSBRSSIT.wav-6e5230dc32584bacb3aa63d8eacd8c8c.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSBRSSIT.wav"
+dest_files=["res://.godot/imported/DSBRSSIT.wav-6e5230dc32584bacb3aa63d8eacd8c8c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

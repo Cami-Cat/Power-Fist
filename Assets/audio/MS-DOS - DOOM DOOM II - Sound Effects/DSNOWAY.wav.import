@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://eupot3gs53an"
+path="res://.godot/imported/DSNOWAY.wav-81fb1a468975035e4318340510a6952d.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSNOWAY.wav"
+dest_files=["res://.godot/imported/DSNOWAY.wav-81fb1a468975035e4318340510a6952d.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

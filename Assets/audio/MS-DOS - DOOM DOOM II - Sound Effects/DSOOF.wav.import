@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dmk3kv0kyd5fm"
+path="res://.godot/imported/DSOOF.wav-8e62cdbbb81d603ca46ba84b94102103.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSOOF.wav"
+dest_files=["res://.godot/imported/DSOOF.wav-8e62cdbbb81d603ca46ba84b94102103.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

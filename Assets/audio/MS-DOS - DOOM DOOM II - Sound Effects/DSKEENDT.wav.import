@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://db4ljpx7q504g"
+path="res://.godot/imported/DSKEENDT.wav-4f271db72930beeba5fef0e5e6915623.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSKEENDT.wav"
+dest_files=["res://.godot/imported/DSKEENDT.wav-4f271db72930beeba5fef0e5e6915623.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
