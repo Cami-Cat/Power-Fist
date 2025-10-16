@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3cci10yer8a3"
+path="res://.godot/imported/DSPSTOP.wav-13289df51339ece1748950f79dfb198f.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSPSTOP.wav"
+dest_files=["res://.godot/imported/DSPSTOP.wav-13289df51339ece1748950f79dfb198f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

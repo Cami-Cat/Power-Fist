@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://scix306ycn7b"
+path="res://.godot/imported/DSRLAUNC.wav-5530722f6d771d056ad49f28e1ed3eb9.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/MS-DOS - DOOM DOOM II - Sound Effects/DSRLAUNC.wav"
+dest_files=["res://.godot/imported/DSRLAUNC.wav-5530722f6d771d056ad49f28e1ed3eb9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
